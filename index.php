@@ -10,7 +10,7 @@
 
     <h1><?php the_title(); //exibe o titulo
         ?></h1>
-    <main><?php the_content(); //exibe o conteudo
+    <main><?php the_content(); //pucha todos os conteúdos
           ?></main>
 
 <?php }
