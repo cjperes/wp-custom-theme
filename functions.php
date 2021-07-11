@@ -1,19 +1,24 @@
 <?php
-
-add_action('dentro_da_home', function () {
-  echo 'caralhoww';
-});
-
-
-function mudar_titulo($titulo)
-{
-  echo '<h2>' . $titulo . '</h2>';
+function handel_add_woocommerce_support() {
+  add_theme_support('woocommerce');
 }
+add_action('after_setup_theme', 'handel_add_woocommerce_support');
 
-add_filter('titulo_home', 'mudar_titulo');
+function handel_css() {
+  wp_register_style('handel-style', get_template_directory_uri() . '/style.css', [], '1.0.0', false);
+  wp_enqueue_style('handel-style');
+}
+add_action('wp_enqueue_scripts', 'handel_css');
 
-function mudar_the_titulo (){
-return  'PORRAA'
-};
+function handel_custom_images() {
+  add_image_size('slide', 1000, 800, ['center', 'top']);
+  update_option('medium_crop', 1);
+}
+add_action('after_setup_theme', 'handel_custom_images');
 
-add_filter('the_title', 'mudar_the_titulo');
+function handel_loop_shop_per_page() {
+  return 6;
+}
+add_filter('loop_shop_per_page', 'handel_loop_shop_per_page');
+
+?>
