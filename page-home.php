@@ -16,6 +16,10 @@ get_header(); //pega o header do wp
     <main><?php the_content(); //pucha todos os conteúdos
           ?></main>
 
+    <?php do_action('dentro_da_home'); ?>
+
+    <?php echo apply_filters('titulo_home', 'Essa é a home') ?>
+
 <?php }
 } ?>
 
