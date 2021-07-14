@@ -35,19 +35,32 @@ $slide = format_products($products_slide);
   while (have_posts()) {
     the_post(); ?>
 
+    <ul class="vantagens">
+      <li>
+        Frete Grátis
+      </li>
+      <li>
+        Troca fácil
+      </li>
+      <li>
+        Até 12x
+      </li>
+    </ul>
 
     <section class="slide-wrapper">
       <ul class="slide">
-        <li class="slide-item">
-          <img src="<?= $product['img']; ?>" alt="<? $product['name']; ?>">
-
-          <div class="slide-info">
-
-
-          </div>
-        </li>
         <?php foreach ($slide as $product) { ?>
           <li><?= $product['name']; ?></li>
+          <li class="slide-item">
+            <img src="<?= $product['img']; ?>" alt="<? $product['name']; ?>">
+
+            <div class="slide-info">
+              <span class="slide-preco"><?= $product['preco']; ?> </span>
+              <h2 class="slide-nome"><?= $product['name']; ?> </h2>
+              <a class="slide-link" href="<?= $product['link']; ?>">Ver produto </a>
+
+            </div>
+          </li>
         <?   } ?>
       </ul>
 
